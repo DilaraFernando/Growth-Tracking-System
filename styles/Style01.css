@@ -1,0 +1,377 @@
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    overflow-x: hidden;
+    color: #1a202c;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background: #ffffff;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    background: #f3f4f6;
+    padding: 8px 25px;
+    border-radius: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: #000;
+    font-weight: 700;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.signin-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 60px 20px 100px 20px; /* Footer එකට ඉඩ තැබීමට පතුලට padding එකතු කළා */
+    position: relative;
+    min-height: 80vh;
+}
+.main-title {
+    font-size: 56px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 20px;
+}
+.sub-text {
+    font-size: 18px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    white-space: nowrap; /* පේළිය කැඩීම වැළැක්වීමට */
+    text-align: center;
+}
+
+/* --- Buttons --- */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.btn-login {
+    background: #3a5042;
+    color: white;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-register {
+    background: white;
+    color: #333;
+    padding: 15px 35px;
+    border: 1px solid #e5e7eb;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover,
+.btn-register:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* --- Image & Decorations --- */
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.hero-image {
+    width: 400px;
+    position: relative;
+    z-index: 2;
+}
+
+.image-shadow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 40px;
+    background: rgba(0,0,0,0.1);
+    filter: blur(20px);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.floating-icons {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.f-icon {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+.f-icon:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.location-card {
+    position: absolute;
+    bottom: 20px;
+    left: 80px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.location-card:hover {
+    transform: scale(1.05);
+}
+
+.loc-pin {
+    background: #fff1f2;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.loc-info {
+    text-align: left;
+}
+
+.city {
+    font-weight: 700;
+    font-size: 14px;
+    color: #111827;
+    display: block;
+}
+
+.weather-brief {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* --- Footer Section --- */
+.main-footer {
+    background-color: #ffffff;
+    padding: 80px 0 40px 0;
+    border-top: 1px solid #edf2f7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-box {
+    background-color: #3a5042;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.footer-logo h2 {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.cta-button {
+    background-color: #3a5042;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.line-divider {
+    border: 0;
+    border-top: 1px solid #edf2f7;
+    margin-bottom: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.footer-column ul li a:hover {
+    color: #3a5042;
+}
+
+.social-box {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon {
+    text-decoration: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6b7280;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    border-top: 1px solid #edf2f7;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.bottom-links {
+    display: flex;
+    gap: 20px;
+}
+
+.bottom-links a {
+    text-decoration: none;
+    color: #9ca3af;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 20px 40px;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .sub-text {
+        white-space: normal;
+    }
+    .location-card {
+        left: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 36px;
+    }
+    .footer-header {
+        flex-direction: column; gap: 20px;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
