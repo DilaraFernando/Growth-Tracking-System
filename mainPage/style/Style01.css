@@ -119,11 +119,12 @@ body {
 
 /* Register Plants button - Primary style */
 .btn-register {
-    background: linear-gradient(135deg, #3a5042, #2c3e2f);
+    background: linear-gradient(135deg, #2e7d32, #2e7d32);
     color: white;
     border: none;
     box-shadow: 0 8px 25px rgba(58, 80, 66, 0.25);
 }
+
 
 .btn-register:hover {
     transform: translateY(-4px);
@@ -281,7 +282,7 @@ body {
 }
 
 .logo-box {
-    background-color: #3a5042;
+    background-color: #2e7d32;
     color: white;
     width: 40px;
     height: 40px;
@@ -298,7 +299,7 @@ body {
 }
 
 .cta-button {
-    background-color: #3a5042;
+    background-color: #2e7d32;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -372,7 +373,8 @@ body {
     transform: translateY(-4px) scale(1.08);
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
-.social-icon.twitter img { background: #000; padding: 8px; }
+.social-icon.twitter img {
+    background: #000; padding: 8px; }
 .social-icon.instagram img { background: #e1306c; padding: 8px; }
 .social-icon.whatsapp img { background: #25D366; padding: 8px; }
 .social-icon.discord img { background: #5865F2; padding: 8px; }

@@ -24,16 +24,19 @@ public class PlantServiceImpl implements PlantService {
 
     @Override
     public void savePlant(PlantDTO plantDTO) {
+
         plantRepository.save(modelMapper.map(plantDTO, Plant.class));
     }
 
     @Override
     public void updatePlant(PlantDTO plantDTO) {
+
         plantRepository.save(modelMapper.map(plantDTO, Plant.class));
     }
 
     @Override
     public void deletePlant(long plantId) {
+
         plantRepository.deleteById(plantId);
     }
 
