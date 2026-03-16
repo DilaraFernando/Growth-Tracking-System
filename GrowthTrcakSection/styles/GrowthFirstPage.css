@@ -22,6 +22,49 @@ h2 {
     margin-bottom: 60px;
 }
 
+.navbar {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    right: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background: #ffffff;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    background: #f3f4f6;
+    padding: 8px 25px;
+    border-radius: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: #000;
+    font-weight: 700;
+}
+
 /* Card Grid */
 .card-group {
     display: flex;

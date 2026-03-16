@@ -5,8 +5,8 @@
     --danger: #c62828;
     --bg: #ffffff;
     --card: rgb(255, 255, 255);
-    --text: #1b1a1a;
-    --text-muted:#5f7c76;
+    --text: #504f4f;
+    --text-muted: #3c3b3b;
     --shadow-sm: 0 6px 20px rgba(0,0,0,0.08);
     --shadow-lg: 0 20px 60px rgba(46,125,50,0.12);
     --radius: 24px;
@@ -51,7 +51,7 @@ body {
     display: flex;
     align-items: center;
     gap: 32px;
-    min-width: 600px;           /* ← main change: wide left area */
+    min-width: 600px;
     max-width: 620px;
 }
 
@@ -59,38 +59,34 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     font-weight: 700;
     font-size: 15px;
 }
-
-.nav-tabs {
+.nav-links {
+    position: absolute;
+    right: 950px;
     display: flex;
-    gap: 12px;
-
+    gap: 30px;
+    list-style: none;
+    background: #f3f4f6;
+    padding: 8px 25px;
+    border-radius: 30px;
 }
 
-.nav-tab {
-    padding: 12px 28px;
-    border-radius: 999px;
+.nav-links a {
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 15px;
     font-weight: 500;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all 0.25s;
-    white-space: nowrap;
+    transition: 0.3s;
 }
 
-.nav-tab:hover {
-    background: rgba(46,125,50,0.08);
-    color: var(--success);
+.nav-links a.active,
+.nav-links a:hover {
+    color: #000;
+    font-weight: 700;
 }
-
-.nav-tab.active {
-    background: var(--success);
-    color: white;
-    box-shadow: 0 4px 12px rgba(46,125,50,0.25);
-}
-
 .user-area {
     display: flex;
     align-items: center;
@@ -126,7 +122,7 @@ body {
     justify-content: center;
     font-weight: bold;
     font-size: 18px;
-    box-shadow: 0 4px 12px rgb(46, 125, 50);
+    box-shadow: 0 4px 12px rgb(255, 255, 255);
 }
 
 .plan-badge {
