@@ -1,48 +1,70 @@
-/* General Reset */
+:root {
+    --primary: #1e88e5;
+    --success: #2e7d32;
+    --warning: #f9a825;
+    --danger: #c62828;
+    --bg: #ffffff;
+    --card: rgb(255, 255, 255);
+    --text: #504f4f;
+    --text-muted: #3c3b3b;
+    --shadow-sm: 0 6px 20px rgba(0,0,0,0.08);
+    --shadow-lg: 0 20px 60px rgba(46,125,50,0.12);
+    --radius: 24px;
+
+    /*ALERTS COLORS*/
+    --bg-success: #ffffff;--text-success: #121312; --border-success: #b7e4c7;
+    --bg-warning: #ffffff; --text-warning: #121312; --border-warning: #b7e4c7;
+    --bg-info: #ffffff;    --text-info: #131212;    --border-info: #b7e4c7;
+    --bg-error: #fef2f2;   --text-error: #991b1b;   --border-error: #fecaca;
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #ffffff;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+.top-nav {
+    height: 80px;
+    background: var(--card);
+    border-radius: var(--radius);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(46,125,50,0.12);
+    padding: 0 40px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.form-container {
-    text-align: center;
-    max-width: 900px;
-    width: 100%;
-}
-
-h2 {
-    font-weight: 400;
-    color: #121312;
-    font-size: 60px;
-    margin-bottom: 60px;
-}
-
-.navbar {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    right: 900px;
-    display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+}
+
+.left-section {
+    display: flex;
     align-items: center;
-    padding: 20px 80px;
-    background: #ffffff;
+    gap: 32px;
+    min-width: 600px;
+    max-width: 620px;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     font-weight: 700;
     font-size: 15px;
 }
-
 .nav-links {
+    position: absolute;
+    right: 1010px;
     display: flex;
     gap: 30px;
     list-style: none;
@@ -64,94 +86,130 @@ h2 {
     color: #000;
     font-weight: 700;
 }
-
-/* Card Grid */
-.card-group {
+.user-area {
+    position: relative;
+    left: 600px;
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+    flex-shrink: 0;
 }
 
-/* Hide actual radio button */
-.card input[type="radio"] {
-    display: none;
-}
-
-/* Card Styling */
-/* Card Styling - Updated to 200x200 */
-.card {
+.bell {
+    font-size: 22px;
+    color: var(--text-muted);
     cursor: pointer;
-    width: 200px;  /* Increased width */
-    height: 200px; /* Increased height */
+    position: relative;
 }
 
-.card-content {
-    border: 1px solid #2e7d32;
-    border-radius: 8px; /* Slightly more rounded for the larger size */
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centers content vertically */
-    align-items: center;
-    height: 100%; /* Ensures content fills the 200px height */
-    transition: all 0.2s ease;
-    box-sizing: border-box;
-}
-
-/* Hover effect */
-.card-content:hover {
-    border-color: #121312;
-    background-color: #fafafa;
-}
-
-/* Icon and Text - Adjusted for larger cards */
-.icon {
-    font-size: 50px; /* Made the icon bigger to fit the 200px card */
-    margin-bottom: 20px;
-}
-
-.icon {
-    width: 100%;
-    height: 80px; /* Fixed height for image area */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-
-/* Image Styling */
-.icon img {
-    max-width: 250%;
-    max-height: 250%;
-    object-fit: contain; /* Keeps image proportions */
-}
-.card-content p {
-    font-size: 13px; /* Slightly larger text */
-    font-weight: bold;
-    color: #4a4a4a;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
-}
-
-/* Custom Radio Dot */
-.radio-dot {
-    height: 18px; /* Slightly bigger dot */
-    width: 18px;
-    border: 1px solid #e0e0e0;
+.bell::after {
+    content: '';
+    position: absolute;
+    top: -6px; right: -6px;
+    width: 10px; height: 10px;
+    background: var(--danger);
     border-radius: 50%;
-    display: inline-block;
+    border: 2px solid #ffffff;
 }
 
-/* Selected State */
-.card input:checked + .card-content {
-    border-color: #2e7d32; /* Keep the green border when selected */
-    border-width: 2px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+.avatar {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #2e7d32, #2e7d32);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgb(255, 255, 255);
 }
 
-.card input:checked + .card-content .radio-dot {
-    background-color: #2e7d32;
-    border-color: #2e7d32;
+.plan-badge {
+    background: rgba(46,125,50,0.1);
+    color: var(--success);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.cards-container{
+    position: absolute;
+    right: 620px;
+    top: 280px;
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.profile-card {
+    background: var(--card);
+    /*border-radius: 10px;*/
+    padding: 60px;
+    text-align: center;
+    /*box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);*/
+    transition: all 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 120%;
+    background: linear-gradient(135deg, var(--bg), var(--bg));
+    z-index: 0;
+    border-radius: 14px 14px 0 0;
+    transition: transform 0.3s ease;
+}
+.profile-card:nth-child(2)::before {
+    background: linear-gradient(135deg, var(--bg), var(--bg));
+}
+.profile-card:hover::before {
+    transform: scale(1.1);
+}
+.profile-content {
+    position: relative;
+    z-index: 1;
+}
+.profile-card img {
+    width: 200px; height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 20px auto;
+    background: var(--card);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+}
+.profile-card:hover img {
+    transform: scale(1.1);
+}
+.profile-card h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: var(--text);
+}
+.profile-card p {
+    font-size: 0.9em;
+    line-height: 1.4;
+    color:#5B6B76FF;
+    margin-bottom: 15px;
+}
+.request {
+    background: var(--success);
+    color: var(--bg);
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.profile-card:hover .request {
+    background: var(--secondary);
+    color: #1a1a1b;
+    transform: translateY(-2px);
 }
