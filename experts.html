@@ -4,184 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expert Corner | PlantPulse</title>
-    <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --bg-color: #f8fafc;
-            --sidebar-bg: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.8);
-            --primary: #059669;
-            --primary-light: #ecfdf5;
-            --primary-glow: rgba(5, 150, 105, 0.15);
-            --text-main: #1e293b;
-            --text-dim: #64748b;
-            --glass-border: rgba(226, 232, 240, 0.8);
-            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-
-        body {
-            background-color: var(--bg-color);
-            background-image: radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 25%);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-        }
-
-        /* --- Sidebar --- */
-        aside {
-            width: 260px;
-            background: var(--sidebar-bg);
-            border-right: 1.5px solid var(--glass-border);
-            padding: 2.5rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            z-index: 100;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 3rem;
-            text-decoration: none;
-        }
-
-        nav { flex: 1; }
-        nav ul { list-style: none; }
-        nav li { margin-bottom: 0.5rem; }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.75rem 1rem;
-            color: var(--text-dim);
-            text-decoration: none;
-            border-radius: 12px;
-            transition: all 0.2s ease;
-            font-weight: 600;
-        }
-
-        .nav-link:hover { background: #f1f5f9; color: var(--primary); }
-        .nav-link.active { background: var(--primary-light); color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary-glow); }
-
-        /* --- Main Content --- */
-        main { flex: 1; padding: 40px; max-width: 1400px; margin: 0 auto; width: 100%; }
-
-        header { margin-bottom: 40px; display: flex; justify-content: space-between; align-items: flex-end; }
-        .header-title h1 { font-size: 2rem; font-weight: 800; color: var(--text-main); letter-spacing: -1px; }
-        .header-title p { color: var(--text-dim); font-size: 1rem; margin-top: 4px; }
-
-        .experts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px; }
-
-        .expert-card {
-            background: var(--card-bg);
-            border-radius: 32px;
-            padding: 32px;
-            text-align: center;
-            border: 1.5px solid var(--glass-border);
-            backdrop-filter: blur(12px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--card-shadow);
-            position: relative;
-        }
-
-        .expert-card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); }
-
-        .expert-avatar {
-            width: 110px;
-            height: 110px;
-            border-radius: 36px;
-            margin: 0 auto 24px auto;
-            object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-        }
-
-        .expert-name { font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px; }
-        .expert-role { color: var(--primary); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; display: block; }
-        .expert-bio { color: var(--text-dim); font-size: 1rem; line-height: 1.6; margin-bottom: 24px; font-weight: 500; }
-
-        .btn-consult {
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            padding: 16px;
-            border-radius: 18px;
-            font-weight: 800;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 8px 16px -4px rgba(5, 150, 105, 0.3);
-        }
-
-        .btn-consult:hover { transform: scale(1.02); background: #047857; }
-
-        /* Chat UI Mockup remains simple as established */
-        .chat-overlay {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            width: 380px;
-            height: 520px;
-            background: #fff;
-            border-radius: 32px;
-            box-shadow: 0 24px 60px -12px rgba(0,0,0,0.2);
-            display: none;
-            flex-direction: column;
-            z-index: 1000;
-            border: 1.5px solid var(--glass-border);
-            overflow: hidden;
-            animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-
-        .chat-header { padding: 24px; background: var(--primary); color: #fff; display: flex; align-items: center; gap: 16px; }
-        .chat-messages { flex: 1; padding: 24px; overflow-y: auto; background: #f8fafc; }
-        .chat-input { padding: 20px; border-top: 1.5px solid var(--glass-border); display: flex; gap: 12px; }
-        .chat-input input { flex: 1; border: none; padding: 12px 16px; outline: none; font-size: 1rem; background: #f1f5f9; border-radius: 14px; }
-
-        @media (max-width: 768px) {
-            aside { width: 80px; padding: 2rem 1rem; }
-            .nav-link span, .logo span { display: none; }
-        }
-    </style>
+    <link rel="stylesheet" href="sidebar/style/experts.css">
 </head>
 <body>
 
     <aside>
-        <a href="index.html" class="logo">
+        <a href="homePage.html" class="logo">
             <i data-lucide="sprout"></i>
-            <span>PlantPulse</span>
+            <span>Growth-Agri</span>
         </a>
         <nav>
             <ul>
                 <li><a href="dashboard.html" class="nav-link"><i data-lucide="layout-dashboard"></i> <span>Dashboard</span></a></li>
                 <li><a href="register-plant.html" class="nav-link"><i data-lucide="plus-square"></i> <span>Register Plant</span></a></li>
-                <li><a href="greenhouse.html" class="nav-link"><i data-lucide="container"></i> <span>My Collection</span></a></li>
-                <li><a href="all-plants.html" class="nav-link"><i data-lucide="leaf"></i> <span>All Plants</span></a></li>
-                <li><a href="social-posts.html" class="nav-link"><i data-lucide="message-square"></i> <span>Social Feed</span></a></li>
+                <li><a href="all-plants.html" class="nav-link"><i data-lucide="flower"></i> <span>All Plants</span></a></li>
+                <li><a href="plantGrowth.html" class="nav-link"><i data-lucide="leaf"></i> <span>Plant Growth</span></a></li>
+                <li><a href="myCollection.html" class="nav-link"><i data-lucide="container"></i> <span>My Collection</span></a></li>
+                <li><a href="socialPosts.html" class="nav-link"><i data-lucide="message-square"></i> <span>Social Feed</span></a></li>
                 <li><a href="notifications.html" class="nav-link"><i data-lucide="bell"></i> <span>Notifications</span></a></li>
                 <li><a href="weather.html" class="nav-link"><i data-lucide="cloud-sun"></i> <span>Weather</span></a></li>
                 <li><a href="settings.html" class="nav-link"><i data-lucide="settings"></i> <span>Settings</span></a></li>
-                <li><a href="expert-corner.html" class="nav-link active"><i data-lucide="bot"></i> <span>Expert Corner</span></a></li>
+                <li><a href="expertAI.html" class="nav-link active"><i data-lucide="bot"></i> <span>Expert Corner</span></a></li>
             </ul>
         </nav>
         <a href="javascript:void(0)" onclick="auth.logout()" style="color: var(--text-dim); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; margin-top: auto; padding: 1rem;"><i data-lucide="log-out"></i> <span>Logout</span></a>
@@ -208,7 +53,7 @@
                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200" class="expert-avatar" alt="Expert">
                 <h3 class="expert-name">Harshitha Fernandez</h3>
                 <span class="expert-role">Climate Experts</span>
-                <p class="expert-bio">Providing strategic advice on irrigation and harvest timing based on micro-climate data.</p>
+                <p class="expert-bio">Providing strategic advice on irrigation and harvest timing based on microclimate data.</p>
                 <button class="btn-consult" onclick="openChat('Harshitha Fernandez')">
                     <i data-lucide="message-circle"></i> Start Consultation
                 </button>
@@ -235,18 +80,6 @@
     </div>
 
     <script src="API/auth.js"></script>
-    <script>
-        lucide.createIcons();
-        if (!auth.isLoggedIn()) { window.location.href = "sing-in/pages/sign-in.html"; }
-
-        function openChat(name) {
-            document.getElementById('chatExpertName').textContent = name;
-            document.getElementById('chatOverlay').style.display = 'flex';
-        }
-
-        function closeChat() {
-            document.getElementById('chatOverlay').style.display = 'none';
-        }
-    </script>
+    <script src="sidebar/js/experts.js"></script>
 </body>
 </html>

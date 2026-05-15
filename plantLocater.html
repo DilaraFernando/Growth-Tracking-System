@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="sidebar/style/plantLocater.css">
+</head>
+<body>
+<div class="sidebar-bottom-action">
+  <a href="plantGrowth.html" class="mini-weather-btn">
+    <i class="fa-solid fa-cloud-sun"></i>
+    <span>PlantGrowth Overview</span>
+  </a>
+</div>
+<div class="map-card">
+  <div class="map-header">
+    <div>
+      <h1 style="margin: 0; font-size: 24px;">Precision Locator</h1>
+      <p style="margin: 5px 0 0 0; font-size: 13px; color: #64748b;">Navigate through walkways to find your plants.</p>
+    </div>
+    <div class="search-box">
+      <i class="fa-solid fa-search" style="align-self: center; color: #94a3b8;"></i>
+      <input type="text" id="mapSearch" placeholder="Enter Plant ID (e.g. Aloe-01, Chili-04)..." onkeyup="searchOnMap()">
+    </div>
+  </div>
+
+  <div class="garden-architecture">
+
+    <div class="section-block">
+      <div class="section-label">SECTION A (Medicinal)</div>
+      <div class="plant-cell" data-id="Aloe-01"><i class="fa-solid fa-leaf"></i>A-01</div>
+      <div class="plant-cell" data-id="Aloe-02"><i class="fa-solid fa-leaf"></i>A-02</div>
+      <div class="plant-cell" data-id="Mint-01"><i class="fa-solid fa-leaf"></i>A-03</div>
+      <div class="plant-cell" data-id="Mint-02"><i class="fa-solid fa-leaf"></i>A-04</div>
+      <div class="plant-cell" data-id="Basil-01"><i class="fa-solid fa-leaf"></i>A-05</div>
+      <div class="plant-cell"><i class="fa-solid fa-plus"></i>Empty</div>
+    </div>
+
+    <div class="walkway">Central Walkway West</div>
+
+    <div class="section-block">
+      <div class="section-label">SECTION B (Vegetables)</div>
+      <div class="plant-cell" data-id="Tomato-01"><i class="fa-solid fa-seedling"></i>B-01</div>
+      <div class="plant-cell" data-id="Chili-04"><i class="fa-solid fa-seedling"></i>B-02</div>
+      <div class="plant-cell"><i class="fa-solid fa-plus"></i>Empty</div>
+      <div class="plant-cell" data-id="Carrot-01"><i class="fa-solid fa-seedling"></i>B-04</div>
+      <div class="plant-cell" data-id="Tomato-05"><i class="fa-solid fa-seedling"></i>B-05</div>
+      <div class="plant-cell" data-id="Chili-02"><i class="fa-solid fa-seedling"></i>B-06</div>
+    </div>
+
+    <div class="walkway">Central Walkway East</div>
+
+    <div class="section-block">
+      <div class="section-label">SECTION C (Flowers)</div>
+      <div class="plant-cell" data-id="Rose-01"><i class="fa-solid fa-clover"></i>C-01</div>
+      <div class="plant-cell" data-id="Rose-02"><i class="fa-solid fa-clover"></i>C-02</div>
+      <div class="plant-cell" data-id="Lily-01"><i class="fa-solid fa-clover"></i>C-03</div>
+      <div class="plant-cell"><i class="fa-solid fa-plus"></i>Empty</div>
+      <div class="plant-cell" data-id="Orchid-01"><i class="fa-solid fa-clover"></i>C-05</div>
+      <div class="plant-cell" data-id="Rose-03"><i class="fa-solid fa-clover"></i>C-06</div>
+    </div>
+  </div>
+
+  <div class="map-footer">
+    <div class="status-pill"><div class="dot" style="background: #e2e8f0;"></div> Main Walkway</div>
+    <div class="status-pill"><div class="dot" style="background: #f8fafc; border:1px solid #ddd;"></div> Available Slot</div>
+    <div class="status-pill"><div class="dot" style="background: var(--primary);"></div> Located Target</div>
+  </div>
+</div>
+<script src="sidebar/js/plantLocater.js"></script>
+</body>
+</html>

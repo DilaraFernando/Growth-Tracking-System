@@ -6,119 +6,26 @@
     <title>All Registered Plants | PlantPulse</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --bg-color: #f8fafc;
-            --sidebar-bg: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.8);
-            --primary: #059669;
-            --primary-light: #ecfdf5;
-            --primary-glow: rgba(5, 150, 105, 0.15);
-            --text-main: #1e293b;
-            --text-dim: #64748b;
-            --glass-border: rgba(226, 232, 240, 0.8);
-            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body {
-            background-color: var(--bg-color);
-            background-image: radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 25%);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-        }
-        aside {
-            width: 260px;
-            background: var(--sidebar-bg);
-            border-right: 1.5px solid var(--glass-border);
-            padding: 2.5rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            z-index: 100;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 3rem;
-            text-decoration: none;
-        }
-        nav { flex: 1; }
-        nav ul { list-style: none; }
-        nav li { margin-bottom: 0.5rem; }
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.75rem 1rem;
-            color: var(--text-dim);
-            text-decoration: none;
-            border-radius: 12px;
-            transition: all 0.2s ease;
-            font-weight: 600;
-        }
-        .nav-link:hover { background: #f1f5f9; color: var(--primary); }
-        .nav-link.active { background: var(--primary-light); color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary-glow); }
-        main {
-            flex: 1;
-            padding: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .header-title h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: -1px;
-            margin-bottom: 8px;
-        }
-        .header-title p { color: var(--text-dim); font-size: 1rem; margin-bottom: 40px; }
-        .card {
-            background: var(--card-bg);
-            border-radius: 32px;
-            padding: 40px;
-            border: 1.5px solid var(--glass-border);
-            backdrop-filter: blur(12px);
-            box-shadow: var(--card-shadow);
-        }
-        .plants-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; }
-        .plant-card { background: var(--primary-light); border-radius: 18px; padding: 24px; box-shadow: 0 2px 8px rgba(5,150,105,0.07); display: flex; flex-direction: column; align-items: flex-start; }
-        .plant-title { font-size: 1.2rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-        .plant-type { color: var(--text-dim); font-size: 1rem; margin-bottom: 8px; }
-        .plant-status { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
-        .plant-date { font-size: 0.93rem; color: #2563eb; margin-bottom: 4px; }
-        .empty-msg { color: #64748b; text-align: center; font-size: 1.1rem; margin-top: 40px; }
-        @media (max-width: 768px) {
-            aside { width: 80px; padding: 2rem 1rem; }
-            .nav-link span, .logo span { display: none; }
-            main { padding: 20px; }
-        }
-    </style>
+    <link rel="stylesheet" href="sidebar/style/allPlants.css">
 </head>
 <body>
     <aside>
-        <a href="index.html" class="logo">
+        <a href="homePage.html" class="logo">
             <i data-lucide="sprout"></i>
-            <span>PlantPulse</span>
+            <span>Growth-Agri</span>
         </a>
         <nav>
             <ul>
                 <li><a href="dashboard.html" class="nav-link"><i data-lucide="layout-dashboard"></i> <span>Dashboard</span></a></li>
                 <li><a href="register-plant.html" class="nav-link"><i data-lucide="plus-square"></i> <span>Register Plant</span></a></li>
-                <li><a href="greenhouse.html" class="nav-link"><i data-lucide="container"></i> <span>My Collection</span></a></li>
-                <li><a href="all-plants.html" class="nav-link active"><i data-lucide="leaf"></i> <span>All Plants</span></a></li>
-                <li><a href="social-posts.html" class="nav-link"><i data-lucide="message-square"></i> <span>Social Feed</span></a></li>
+                <li><a href="all-plants.html" class="nav-link active"><i data-lucide="flower"></i> <span>All Plants</span></a></li>
+                <li><a href="plantGrowth.html" class="nav-link"><i data-lucide="leaf"></i> <span>Plant Growth</span></a></li>
+                <li><a href="myCollection.html" class="nav-link"><i data-lucide="container"></i> <span>My Collection</span></a></li>
+                <li><a href="socialPosts.html" class="nav-link"><i data-lucide="message-square"></i> <span>Social Feed</span></a></li>
                 <li><a href="notifications.html" class="nav-link"><i data-lucide="bell"></i> <span>Notifications</span></a></li>
                 <li><a href="weather.html" class="nav-link"><i data-lucide="cloud-sun"></i> <span>Weather</span></a></li>
                 <li><a href="settings.html" class="nav-link"><i data-lucide="settings"></i> <span>Settings</span></a></li>
-                <li><a href="expert-corner.html" class="nav-link"><i data-lucide="bot"></i> <span>Expert Corner</span></a></li>
+                <li><a href="expertAI.html" class="nav-link"><i data-lucide="bot"></i> <span>Expert Corner</span></a></li>
             </ul>
         </nav>
         <a href="javascript:void(0)" onclick="auth.logout()" style="color: var(--text-dim); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; margin-top: auto; padding: 1rem;"><i data-lucide="log-out"></i> <span>Logout</span></a>
@@ -134,40 +41,6 @@
         </div>
     </main>
     <script src="API/auth.js"></script>
-    <script>
-        lucide.createIcons();
-        if (!auth.isLoggedIn()) {
-            window.location.href = "sing-in/pages/sign-in.html";
-        }
-        const BACKEND = 'http://localhost:8080/api/v1';
-        const grid = document.getElementById('plants-grid');
-        const emptyMsg = document.getElementById('empty-msg');
-        fetch(`${BACKEND}/plants`, { headers: auth.authHeaders() })
-            .then(r => r.json())
-            .then(json => {
-                const plants = json.data || [];
-                if (!plants.length) {
-                    emptyMsg.style.display = 'block';
-                    return;
-                }
-                emptyMsg.style.display = 'none';
-                plants.forEach(plant => {
-                    const card = document.createElement('div');
-                    card.className = 'plant-card';
-                    card.style.cursor = 'pointer';
-                    card.onclick = () => {
-                        window.location.href = `plant-detail.html?id=${plant.id}`;
-                    };
-                    card.innerHTML = `
-                        <div class="plant-title">${plant.plantName}</div>
-                        <div class="plant-type">Type: ${plant.plantType}</div>
-                        <div class="plant-status">Status: ${plant.status || 'N/A'}</div>
-                        <div class="plant-date">Planted: ${plant.plantedDate || ''}</div>
-                        <div style="font-size:0.93rem; color:#64748b;">Stage: ${plant.currentStage || ''}</div>
-                    `;
-                    grid.appendChild(card);
-                });
-            });
-    </script>
+    <script src="sidebar/js/allPlants.js"></script>
 </body>
 </html>

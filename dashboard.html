@@ -4,637 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlantPulse | Modern Growth Tracker</title>
-    <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons (via CDN) -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --bg-color: #f8fafc;
-            --sidebar-bg: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.8);
-            --primary: #059669;
-            --primary-light: #ecfdf5;
-            --primary-glow: rgba(5, 150, 105, 0.15);
-            --text-main: #1e293b;
-            --text-dim: #64748b;
-            --accent-blue: #2563eb;
-            --accent-amber: #d97706;
-            --danger: #dc2626;
-            --glass-border: rgba(226, 232, 240, 0.8);
-            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 25%),
-                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 25%);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-        }
-
-        /* --- Sidebar --- */
-        aside {
-            width: 260px;
-            background: var(--sidebar-bg);
-            border-right: 1.5px solid var(--glass-border);
-            padding: 2.5rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            z-index: 100;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 3rem;
-            text-decoration: none;
-        }
-
-        nav { flex: 1; }
-        nav ul { list-style: none; }
-        nav li { margin-bottom: 0.5rem; }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.75rem 1rem;
-            color: var(--text-dim);
-            text-decoration: none;
-            border-radius: 12px;
-            transition: all 0.2s ease;
-            font-weight: 600;
-        }
-
-        .nav-link:hover {
-            background: #f1f5f9;
-            color: var(--primary);
-        }
-
-        .nav-link.active {
-            background: var(--primary-light);
-            color: var(--primary);
-            box-shadow: inset 0 0 0 1px var(--primary-glow);
-        }
-
-        /* --- Main Content --- */
-        main {
-            flex: 1;
-            padding: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .header-title h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--text-main);
-            letter-spacing: -1px;
-        }
-
-        .header-title p {
-            color: var(--text-dim);
-            font-size: 1rem;
-            margin-top: 4px;
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: #fff;
-            padding: 8px 16px;
-            border-radius: 50px;
-            border: 1.5px solid var(--glass-border);
-            box-shadow: var(--card-shadow);
-        }
-
-        .avatar {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 800;
-        }
-
-        /* --- Dashboard Grid --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-bottom: 24px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 32px;
-            padding: 32px;
-            border: 1.5px solid var(--glass-border);
-            backdrop-filter: blur(12px);
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.1);
-            border-color: var(--primary);
-        }
-
-        .card h3 { font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 24px; letter-spacing: -0.5px; }
-
-        /* --- Stats Cards --- */
-        .stat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 16px;
-        }
-
-        .stat-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .stat-value {
-            font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 4px;
-            letter-spacing: -1px;
-        }
-
-        .stat-label {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .trend {
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .trend.up { background: rgba(16, 185, 129, 0.1); color: var(--primary); }
-        .trend.down { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
-
-        /* --- Large Chart Area --- */
-        .span-3 { grid-column: span 3; }
-        .span-2 { grid-column: span 2; }
-
-        .chart-placeholder {
-            width: 100%;
-            height: 250px;
-            display: flex;
-            align-items: flex-end;
-            gap: 16px;
-            padding-top: 20px;
-            position: relative;
-        }
-
-        .bar {
-            flex: 1;
-            background: var(--primary);
-            border-radius: 8px 8px 3px 3px;
-            min-height: 20px;
-            opacity: 0.8;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-
-        .bar:hover {
-            opacity: 1;
-            filter: brightness(1.1);
-            transform: scaleX(1.1);
-        }
-
-        /* --- Plant List --- */
-        .plant-list { margin-top: -12px; }
-        .plant-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 0;
-            border-bottom: 1.5px solid var(--glass-border);
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .plant-item:last-child { border-bottom: none; }
-        .plant-item:hover { transform: translateX(4px); }
-
-        .plant-info {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .plant-img {
-            width: 52px;
-            height: 52px;
-            background: var(--primary-light);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-        }
-
-        .plant-details div:first-child { font-weight: 700; color: var(--text-main); font-size: 1.05rem; }
-        .plant-details div:last-child { font-size: 0.85rem; color: var(--text-dim); font-weight: 500; }
-
-        .status-badge {
-            font-size: 0.7rem;
-            padding: 5px 12px;
-            border-radius: 50px;
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-        }
-
-        .status-healthy { background: var(--primary-light); color: var(--primary); }
-        .status-thirst { background: #eff6ff; color: var(--accent-blue); }
-        .status-attention { background: #fff1f2; color: var(--danger); }
-
-        /* --- Switches --- */
-        .control-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 4px 0;
-        }
-        .control-row span { font-weight: 700; color: var(--text-main); font-size: 1rem; }
-
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 52px;
-            height: 28px;
-        }
-
-        .switch input { opacity: 0; width: 0; height: 0; }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #e2e8f0;
-            transition: .3s;
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 22px; width: 22px;
-            left: 3px; bottom: 3px;
-            background-color: white;
-            transition: .3s;
-            border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        input:checked + .slider { background-color: var(--primary); }
-        input:checked + .slider:before { transform: translateX(24px); }
-
-        /* Checklist Styling */
-        .checklist-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
-        }
-
-        .check-item {
-            display: flex;
-            gap: 14px;
-            align-items: center;
-            color: var(--text-main);
-            font-weight: 600;
-            cursor: pointer;
-            padding: 16px;
-            border-radius: 16px;
-            transition: all 0.2s;
-            border: 1.5px solid transparent;
-            background: #f8fafc;
-        }
-
-        .check-item:hover {
-            background: white;
-            border-color: var(--primary-light);
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-        }
-
-        .check-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: var(--primary);
-            cursor: pointer;
-        }
-
-        @media (max-width: 1200px) {
-            .grid { grid-template-columns: repeat(2, 1fr); }
-            .span-3, .span-2 { grid-column: span 2; }
-        }
-
-        @media (max-width: 768px) {
-            aside { width: 80px; padding: 2rem 1rem; }
-            .nav-link span, .logo span { display: none; }
-            .grid { grid-template-columns: 1fr; }
-            .span-3, .span-2 { grid-column: span 1; }
-            main { padding: 20px; }
-        }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="dashboardPage/style/dashboard.css">
 </head>
 <body>
+<aside>
+    <a href="homePage.html" class="logo">
+        <i data-lucide="sprout"></i>
+        <span>Growth-Agri</span>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="dashboard.html" class="nav-link active"><i data-lucide="layout-dashboard"></i> <span>Dashboard</span></a></li>
+            <li><a href="register-plant.html" class="nav-link"><i data-lucide="plus-square"></i> <span>Register Plant</span></a></li>
+            <li><a href="all-plants.html" class="nav-link"><i data-lucide="flower"></i> <span>All Plants</span></a></li>
+            <li><a href="plantGrowth.html" class="nav-link"><i data-lucide="leaf"></i> <span>Plant Growth</span></a></li>
+            <li><a href="myCollection.html" class="nav-link"><i data-lucide="container"></i> <span>My Collection</span></a></li>
+            <li><a href="socialPosts.html" class="nav-link"><i data-lucide="message-square"></i> <span>Social Feed</span></a></li>
+            <li><a href="notifications.html" class="nav-link"><i data-lucide="bell"></i> <span>Notifications</span></a></li>
+            <li><a href="weather.html" class="nav-link"><i data-lucide="cloud-sun"></i> <span>Weather</span></a></li>
+            <li><a href="settings.html" class="nav-link"><i data-lucide="settings"></i> <span>Settings</span></a></li>
+            <li><a href="expertAI.html" class="nav-link"><i data-lucide="bot"></i> <span>Expert Corner</span></a></li>
+        </ul>
+    </nav>
+    <a href="javascript:void(0)" onclick="auth.logout()" style="color: var(--text-dim); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; margin-top: auto; padding: 1rem;"><i data-lucide="log-out"></i> <span>Logout</span></a>
+</aside>
 
-    <aside>
-        <a href="index.html" class="logo">
-            <i data-lucide="sprout"></i>
-            <span>PlantPulse</span>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="dashboard.html" class="nav-link active"><i data-lucide="layout-dashboard"></i> <span>Dashboard</span></a></li>
-                <li><a href="register-plant.html" class="nav-link"><i data-lucide="plus-square"></i> <span>Register Plant</span></a></li>
-                <li><a href="all-plants.html" class="nav-link"><i data-lucide="leaf"></i> <span>All Plants</span></a></li>
-                <li><a href="greenhouse.html" class="nav-link"><i data-lucide="container"></i> <span>My Collection</span></a></li>
-                <li><a href="social-posts.html" class="nav-link"><i data-lucide="message-square"></i> <span>Social Feed</span></a></li>
-                <li><a href="notifications.html" class="nav-link"><i data-lucide="bell"></i> <span>Notifications</span></a></li>
-                <li><a href="weather.html" class="nav-link"><i data-lucide="cloud-sun"></i> <span>Weather</span></a></li>
-                <li><a href="settings.html" class="nav-link"><i data-lucide="settings"></i> <span>Settings</span></a></li>
-                <li><a href="expert-corner.html" class="nav-link"><i data-lucide="bot"></i> <span>Expert Corner</span></a></li>
-            </ul>
-        </nav>
-        <a href="javascript:void(0)" onclick="auth.logout()" style="color: var(--text-dim); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; margin-top: auto; padding: 1rem;"><i data-lucide="log-out"></i> <span>Logout</span></a>
-    </aside>
+<main>
+    <header>
+        <div class="header-title">
+            <h1>Plants DashBoard</h1>
+            <p id="current-date"></p>
+        </div>
+        <div class="user-profile">
+            <i data-lucide="bell" style="color: var(--text-dim); cursor: pointer;"></i>
+            <div class="avatar" id="user-initials">DF</div>
+            <span style="font-size: 0.95rem; font-weight: 700;" id="user-display-name">Dilara Fernandez</span>
+        </div>
+    </header>
 
-    <main>
-        <header>
-            <div class="header-title">
-                <h1>Garden Overview</h1>
-                <p id="current-date"></p>
-            </div>
-            <div class="user-profile">
-                <i data-lucide="bell" style="color: var(--text-dim); cursor: pointer;"></i>
-                <div class="avatar" id="user-initials">JD</div>
-                <span style="font-size: 0.95rem; font-weight: 700;" id="user-display-name">Guest User</span>
-            </div>
-        </header>
-
-        <!-- Stats Row -->
-        <div class="grid" id="stats-row">
-            <div class="card">
-                <div class="stat-header">
-                    <div class="stat-icon" style="background: var(--primary-light); color: var(--primary);">
-                        <i data-lucide="droplets"></i>
-                    </div>
-                    <div class="trend up"><i data-lucide="arrow-up-right"></i> 2%</div>
+    <!-- Stats Row -->
+    <div class="grid" id="stats-row">
+        <div class="card">
+            <div class="stat-header">
+                <div class="stat-icon" style="background: var(--primary-light); color: var(--primary);">
+                    <i data-lucide="droplets"></i>
                 </div>
-                <div class="stat-value" id="moisture-val">--%</div>
-                <div class="stat-label">Avg. Soil Moisture</div>
+                <div class="trend up"><i data-lucide="arrow-up-right"></i>2%</div>
             </div>
+            <div class="stat-value" id="moisture-val">--%</div>
+            <div class="stat-label">Avg. Soil Moisture</div>
+        </div>
 
-            <div class="card">
-                <div class="stat-header">
-                    <div class="stat-icon" style="background: rgba(217, 119, 6, 0.1); color: var(--accent-amber);">
-                        <i data-lucide="sun"></i>
-                    </div>
-                    <div class="trend down"><i data-lucide="arrow-down-right"></i> 5%</div>
+        <div class="card">
+            <div class="stat-header">
+                <div class="stat-icon" style="background: rgba(217, 119, 6, 0.1); color: var(--accent-amber);">
+                    <i data-lucide="sun"></i>
                 </div>
-                <div class="stat-value" id="uv-val">6.4</div>
-                <div class="stat-label">UV Exposure (hrs)</div>
+                <div class="trend down"><i data-lucide="arrow-down-right"></i> 5%</div>
             </div>
+            <div class="stat-value" id="uv-val">6.4</div>
+            <div class="stat-label">UV Exposure (hrs)</div>
+        </div>
 
-            <div class="card">
-                <div class="stat-header">
-                    <div class="stat-icon" style="background: rgba(37, 99, 235, 0.1); color: var(--accent-blue);">
-                        <i data-lucide="thermometer"></i>
-                    </div>
-                    <div class="trend up"><i data-lucide="arrow-up-right"></i> 1.2°</div>
+        <div class="card">
+            <div class="stat-header">
+                <div class="stat-icon" style="background: rgba(37, 99, 235, 0.1); color: var(--accent-blue);">
+                    <i data-lucide="thermometer"></i>
                 </div>
-                <div class="stat-value" id="temp-val">24°C</div>
-                <div class="stat-label">Ambient Temp</div>
+                <div class="trend up"><i data-lucide="arrow-up-right"></i> 1.2°</div>
             </div>
+            <div class="stat-value" id="temp-val">24°C</div>
+            <div class="stat-label">Ambient Temp</div>
+        </div>
 
-            <div class="card">
-                <div class="stat-header">
-                    <div class="stat-icon" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">
-                        <i data-lucide="alert-circle"></i>
-                    </div>
+        <div class="card">
+            <div class="stat-header">
+                <div class="stat-icon" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">
+                    <i data-lucide="alert-circle"></i>
                 </div>
-                <div class="stat-value" id="attention-val">0</div>
-                <div class="stat-label">Needs Attention</div>
+            </div>
+            <div class="stat-value" id="attention-val">0</div>
+            <div class="stat-label">Needs Attention</div>
+        </div>
+    </div>
+
+    <!-- Charts & Secondary Content -->
+    <div class="grid">
+        <!-- New Growth Prediction Card -->
+        <div class="card span-2 growth-card">
+            <div class="growth-header">
+                <h3>Growth Prediction</h3>
+                <span class="badge-green">Next 7 Days</span>
+            </div>
+            <div class="chart-container">
+                <canvas id="growthLineChart"></canvas>
+            </div>
+            <div class="growth-footer">
+                <p>Estimated Total Growth: <strong>+5.8 cm</strong> for this week</p>
             </div>
         </div>
 
-        <!-- Charts & Secondary Content -->
-        <div class="grid">
-            <div class="card span-2">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
-                    <h3 style="margin-bottom:0;">Growth Trend</h3>
-                    <span style="font-size: 0.85rem; color: var(--text-dim); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Last 7 Days</span>
-                </div>
-                <div class="chart-placeholder" id="growth-chart">
-                    <!-- Bars injected by JS -->
-                </div>
+        <div class="card span-2">
+            <h3>Live Inventory</h3>
+            <div class="plant-list" id="plant-list">
+                <div style="text-align:center; padding: 40px; color: var(--text-dim);">Loading your plants...</div>
             </div>
+        </div>
+    </div>
 
-            <div class="card span-2">
-                <h3>Live Inventory</h3>
-                <div class="plant-list" id="plant-list">
-                    <!-- Plants injected by JS -->
-                    <div style="text-align:center; padding: 40px; color: var(--text-dim);">Loading your plants...</div>
-                </div>
+    <!-- Controls and Quick Tasks -->
+    <div class="grid">
+        <div class="card">
+            <h3>Automation</h3>
+            <div class="control-row">
+                <span>Smart Irrigation</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="control-row">
+                <span>Grow Lights</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="control-row">
+                <span>Ventilation</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
             </div>
         </div>
 
-        <!-- Controls and Quick Tasks -->
-        <div class="grid">
-            <div class="card">
-                <h3>Automation</h3>
-                <div class="control-row">
-                    <span>Smart Irrigation</span>
-                    <label class="switch">
-                        <input type="checkbox" checked>
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <div class="control-row">
-                    <span>Grow Lights</span>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <div class="control-row">
-                    <span>Ventilation</span>
-                    <label class="switch">
-                        <input type="checkbox" checked>
-                        <span class="slider"></span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="card span-3">
-                <h3>Daily Care Checklist</h3>
-                <div class="checklist-grid">
-                    <label class="check-item">
-                        <input type="checkbox" checked> Check Calathea moisture
-                    </label>
-                    <label class="check-item">
-                        <input type="checkbox"> Prune dead leaves on Pothos
-                    </label>
-                    <label class="check-item">
-                        <input type="checkbox"> Rotate Monstera
-                    </label>
-                    <label class="check-item">
-                        <input type="checkbox"> Fertilize Orchid
-                    </label>
-                    <label class="check-item">
-                        <input type="checkbox"> Inspect for spider mites
-                    </label>
-                    <label class="check-item">
-                        <input type="checkbox"> Mist tropical corner
-                    </label>
-                </div>
+        <div class="card span-3">
+            <h3>Daily Care Checklist</h3>
+            <div class="checklist-grid">
+                <label class="check-item">
+                    <input type="checkbox" checked> Check Calathea moisture
+                </label>
+                <label class="check-item">
+                    <input type="checkbox"> Prune dead leaves on Pothos
+                </label>
+                <label class="check-item">
+                    <input type="checkbox"> Rotate Monstera
+                </label>
+                <label class="check-item">
+                    <input type="checkbox"> Fertilize Orchid
+                </label>
+                <label class="check-item">
+                    <input type="checkbox"> Inspect for spider mites
+                </label>
+                <label class="check-item">
+                    <input type="checkbox"> Mist tropical corner
+                </label>
             </div>
         </div>
-    </main>
-
-    <script src="API/auth.js"></script>
-    <script>
-        // Initialize Icons
-        lucide.createIcons();
-
-        // Set Today's Date
-        const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('current-date').innerText = new Date().toLocaleDateString(undefined, dateOptions);
-
-        // Auth Check
-        if (!auth.isLoggedIn()) {
-            window.location.href = "sing-in/pages/sign-in.html";
-        }
-
-        // Dashboard Data Fetching
-        async function fetchDashboard() {
-            try {
-                const response = await fetch('http://localhost:8080/api/v1/plants', {
-                    headers: auth.authHeaders()
-                });
-                const json = await response.json();
-                const plants = json.data || [];
-                renderInventory(plants);
-                updateStats(plants);
-                initChart();
-            } catch (err) {
-                console.error('Fetch error:', err);
-                document.getElementById('plant-list').innerHTML = `<div style="color:var(--danger); text-align:center; padding:20px;">Failed to load garden data.</div>`;
-            }
-        }
-
-        function renderInventory(plants) {
-            const container = document.getElementById('plant-list');
-            if (plants.length === 0) {
-                container.innerHTML = `<div style="text-align:center; padding:40px; color:var(--text-dim);">No plants yet. Start growing today!</div>`;
-                return;
-            }
-
-            container.innerHTML = plants.slice(0, 4).map(plant => {
-                const statusClass = plant.status === 'HEALTHY' ? 'status-healthy' : 'status-thirst';
-                return `
-                    <div class="plant-item" onclick="window.location.href='plant-detail.html?id=${plant.id}'">
-                        <div class="plant-info">
-                            <div class="plant-img"><i data-lucide="leaf"></i></div>
-                            <div class="plant-details">
-                                <div>${plant.plantName}</div>
-                                <div>${plant.plantType}</div>
-                            </div>
-                        </div>
-                        <span class="status-badge ${statusClass}">${plant.status}</span>
-                    </div>
-                `;
-            }).join('');
-            lucide.createIcons();
-        }
-
-        function updateStats(plants) {
-            document.getElementById('moisture-val').innerText = '68%'; // Simulated avg
-            document.getElementById('attention-val').innerText = plants.filter(p => p.status !== 'HEALTHY').length;
-            
-            // Set user info
-            const userName = localStorage.getItem('userName') || 'Garden Owner';
-            document.getElementById('user-display-name').innerText = userName;
-            document.getElementById('user-initials').innerText = userName.charAt(0).toUpperCase();
-        }
-
-        function initChart() {
-            const chartData = [45, 60, 55, 80, 75, 90, 85];
-            const chartContainer = document.getElementById('growth-chart');
-            chartContainer.innerHTML = '';
-            chartData.forEach((val, index) => {
-                const bar = document.createElement('div');
-                bar.className = 'bar';
-                setTimeout(() => { bar.style.height = `${val}%`; }, index * 100);
-                bar.title = `Day ${index + 1}: ${val}mm`;
-                chartContainer.appendChild(bar);
-            });
-        }
-
-        // Live Simulations
-        setInterval(() => {
-            const el = document.getElementById('moisture-val');
-            if(el) {
-                const val = 65 + Math.floor(Math.random() * 8);
-                el.innerText = `${val}%`;
-                el.style.color = 'var(--primary)';
-                setTimeout(() => el.style.color = 'var(--text-main)', 600);
-            }
-        }, 8000);
-
-        fetchDashboard();
-    </script>
+    </div>
+</main>
+<script src="./API/auth.js"></script>
+<script src="./dashboardPage/js/dashboard.js"></script>
 </body>
 </html>

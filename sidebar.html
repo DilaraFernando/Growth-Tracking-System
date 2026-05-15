@@ -2,30 +2,25 @@
   <ul>
     <li><a class="sidebar-link" data-page="dashboard" href="dashboard.html"><i class="lucide" data-lucide="layout-dashboard"></i> Dashboard</a></li>
     <li><a class="sidebar-link" data-page="register-plant" href="register-plant.html"><i class="lucide" data-lucide="leaf"></i> Register Plant</a></li>
-    <li><a class="sidebar-link" data-page="all-plants" href="all-plants.html"><i class="lucide" data-lucide="leaf"></i> All Plants</a></li>
+    <li><a class="sidebar-link" data-page="all-plants" href="all-plants.html"><i class="lucide" data-lucide="flower"></i> All Plants</a></li>
+    <li><a class="sidebar-link" data-page="plant-growth" href="plantGrowth.html"><i class="lucide" data-lucide="leaf"></i>Plant Growth</a></li>
     <li><a class="sidebar-link" data-page="plant-detail" href="plant-detail.html"><i class="lucide" data-lucide="sprout"></i> Plant Details</a></li>
     <li><a class="sidebar-link" data-page="notifications" href="notifications.html"><i class="lucide" data-lucide="bell"></i> Notifications</a></li>
     <li><a class="sidebar-link" data-page="weather" href="weather.html"><i class="lucide" data-lucide="cloud-sun"></i> Weather</a></li>
-    <li><a class="sidebar-link" data-page="collection" href="collection.html"><i class="lucide" data-lucide="layout-grid"></i> My Collection</a></li>
-    <li><a class="sidebar-link" data-page="social-posts" href="social-posts.html"><i class="lucide" data-lucide="users"></i> Social Posts</a></li>
+    <li><a class="sidebar-link" data-page="collection" href="myCollection.html"><i class="lucide" data-lucide="layout-grid"></i> My Collection</a></li>
+    <li><a class="sidebar-link" data-page="social-posts" href="socialPosts.html"><i class="lucide" data-lucide="users"></i> Social Posts</a></li>
     <li><a class="sidebar-link" data-page="experts" href="experts.html"><i class="lucide" data-lucide="user-check"></i> Experts</a></li>
-    <li><a class="sidebar-link" data-page="greenhouse" href="greenhouse.html"><i class="lucide" data-lucide="home"></i> Greenhouse</a></li>
+    <li><a class="sidebar-link" data-page="greenhouse" href="myCollection.html"><i class="lucide" data-lucide="home"></i> Greenhouse</a></li>
     <li><a class="sidebar-link" data-page="settings" href="settings.html"><i class="lucide" data-lucide="settings"></i> Settings</a></li>
     <li><a class="sidebar-link" data-page="logout" href="#" onclick="logout()"><i class="lucide" data-lucide="log-out"></i> Logout</a></li>
   </ul>
 </nav>
+<link rel="stylesheet" href="sidebar/style/sidebar.css">
 <script>
 function logout() {
   localStorage.removeItem('token');
-  window.location.href = 'sing-in/pages/sign-in.html';
+  window.location.href = 'sign-in.html';
 }
 if (window.lucide) lucide.createIcons();
 </script>
-<style>
-.sidebar { width: 220px; background: #fff; height: 100vh; position: fixed; left: 0; top: 0; box-shadow: 2px 0 12px #0001; z-index: 10; padding-top: 32px; }
-.sidebar ul { list-style: none; padding: 0; margin: 0; }
-.sidebar-link { display: flex; align-items: center; gap: 12px; padding: 13px 28px; color: #333; text-decoration: none; font-size: 1.08rem; border-left: 4px solid transparent; transition: background .13s, border .13s; }
-.sidebar-link.active, .sidebar-link:hover { background: #f0fdf4; border-left: 4px solid #4ade80; color: #22c55e; }
-.sidebar-link i.lucide { font-size: 1.2em; }
-@media (max-width: 900px) { .sidebar { width: 60px; padding-top: 18px; } .sidebar-link { padding: 13px 10px; font-size: 0.98rem; } .sidebar-link span { display: none; } }
-</style>
+

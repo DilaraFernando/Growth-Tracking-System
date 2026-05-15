@@ -9,7 +9,7 @@ function isLoggedIn() {
 
 function logout() {
     localStorage.removeItem("jwt_token");
-    window.location.href = "../../sing-in/pages/sign-in.html";
+    window.location.href = "../sign-in.html";
 }
 
 function authHeaders() {

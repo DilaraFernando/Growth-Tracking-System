@@ -1,4 +1,3 @@
-
 const BASE_URL = 'http://localhost:8080/api/v1';
 
 function getHeaders() {
@@ -11,7 +10,6 @@ function getHeaders() {
     }
     return headers;
 }
-
 export async function apiFetch(endpoint, options = {}) {
     const url = `${BASE_URL}${endpoint}`;
     const headers = getHeaders();

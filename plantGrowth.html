@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantPulse | Modern Growth Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="sidebar/style/plantGrowth.css">
+</head>
+<body>
+<aside>
+    <a href="homePage.html" class="logo">
+        <i data-lucide="sprout"></i>
+        <span>Growth-Agri</span>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="dashboard.html" class="nav-link"><i data-lucide="layout-dashboard"></i> <span>Dashboard</span></a></li>
+            <li><a href="register-plant.html" class="nav-link"><i data-lucide="plus-square"></i> <span>Register Plant</span></a></li>
+            <li><a href="all-plants.html" class="nav-link"><i data-lucide="flower"></i> <span>All Plants</span></a></li>
+            <li><a href="plantGrowth.html" class="nav-link active"><i data-lucide="leaf"></i> <span>Plant Growth</span></a></li>
+            <li><a href="myCollection.html" class="nav-link"><i data-lucide="container"></i> <span>My Collection</span></a></li>
+            <li><a href="socialPosts.html" class="nav-link"><i data-lucide="message-square"></i> <span>Social Feed</span></a></li>
+            <li><a href="notifications.html" class="nav-link"><i data-lucide="bell"></i> <span>Notifications</span></a></li>
+            <li><a href="weather.html" class="nav-link"><i data-lucide="cloud-sun"></i> <span>Weather</span></a></li>
+            <li><a href="settings.html" class="nav-link"><i data-lucide="settings"></i> <span>Settings</span></a></li>
+            <li><a href="expertAI.html" class="nav-link"><i data-lucide="bot"></i> <span>Expert Corner</span></a></li>
+        </ul>
+    </nav>
+    <a href="javascript:void(0)" onclick="auth.logout()" style="color: var(--text-dim); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; margin-top: auto; padding: 1rem;"><i data-lucide="log-out"></i> <span>Logout</span></a>
+</aside>
+
+
+<section id="profile-card">
+    <div class="cards-container">
+
+        <div class="profile-card" onclick="window.location.href='30-DayPlantGrowth.html';">
+            <div class="profile-content">
+                <img src="images/f37d9138432f7e03d98dc784fac893c9.jpg" alt="Lifecycle Tracking">
+                <h2>30-Day Lifecycle Tracking</h2>
+                <p>Growth Stage Daily For a Full Month.</p>
+            </div>
+        </div>
+        <div class="profile-card" onclick="window.location.href='automatedSocialIntegrationPage.html';">
+            <div class="profile-content">
+                <img src="images/74b669779f11d0eb12d33a3498d02f24.jpg" alt="Social Integration">
+                <h2>Automated Social Integration</h2>
+                <p>Growth Journey Publicly</p>
+            </div>
+        </div>
+        <div class="profile-card" onclick="window.location.href='plantLocater.html';">
+            <div class="profile-content">
+                <img src="images/ceea112da357d3bc4ef12eb74a5543cc.jpg" alt="Plant Locator">
+                <h2>Plant Locator</h2>
+                <p>Where Your Plant</p>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="API/auth.js"></script>
+</body>
+</html>

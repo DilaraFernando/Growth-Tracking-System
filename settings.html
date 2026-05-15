@@ -7,117 +7,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700,800&display=swap" rel="stylesheet">
     <!-- Lucide Icons (via CDN) -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --bg-color: #f8fafc;
-            --sidebar-bg: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --primary: #059669;
-            --primary-light: #ecfdf5;
-            --primary-glow: rgba(5, 150, 105, 0.15);
-            --glass-border: rgba(226, 232, 240, 0.8);
-            --text-main: #1e293b;
-            --text-dim: #64748b;
-            --card-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-
-        body {
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 25%),
-                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 25%);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-        }
-
-        /* --- Sidebar (copied from dashboard for exact styling) --- */
-        aside {
-            width: 260px;
-            background: var(--sidebar-bg);
-            border-right: 1.5px solid var(--glass-border);
-            padding: 2.5rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            z-index: 100;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 3rem;
-            text-decoration: none;
-        }
-
-        nav { flex: 1; }
-        nav ul { list-style: none; }
-        nav li { margin-bottom: 0.5rem; }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.75rem 1rem;
-            color: var(--text-dim);
-            text-decoration: none;
-            border-radius: 12px;
-            transition: all 0.2s ease;
-            font-weight: 600;
-        }
-
-        .nav-link:hover {
-            background: #f1f5f9;
-            color: var(--primary);
-        }
-
-        .nav-link.active {
-            background: var(--primary-light);
-            color: var(--primary);
-            box-shadow: inset 0 0 0 1px var(--primary-glow);
-        }
-
-        /* Main content */
-        main { flex: 1; padding: 40px; max-width: 1400px; margin: 0 auto; width: 100%; }
-
-        .card{background:var(--card-bg);padding:28px;border-radius:32px;max-width:880px;margin:0 auto;border:1.5px solid var(--glass-border);box-shadow:var(--card-shadow);backdrop-filter:blur(12px)}
-
-        label{display:block;margin-top:12px;font-weight:700;color:var(--text-main)}
-        input,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef6;margin-top:6px}
-        button{margin-top:16px;padding:10px 14px;background:var(--primary);color:#fff;border:none;border-radius:8px;cursor:pointer}
-        .msg{margin-top:12px;color:var(--text-dim)}
-
-        @media (max-width: 900px) {
-            aside { display:none; }
-            main { margin-left: 0; padding: 20px; }
-        }
-    </style>
+    <link rel="stylesheet" href="sidebar/style/settings.css">
 </head>
 <body>
     <aside>
-        <a href="index.html" class="logo">
+        <a href="homePage.html" class="logo">
             <i data-lucide="sprout"></i>
-            <span>PlantPulse</span>
+            <span>Growth-Agri</span>
         </a>
         <nav>
             <ul>
                 <li><a href="dashboard.html" class="nav-link"><i data-lucide="layout-dashboard"></i> <span>Dashboard</span></a></li>
                 <li><a href="register-plant.html" class="nav-link"><i data-lucide="plus-square"></i> <span>Register Plant</span></a></li>
-                <li><a href="greenhouse.html" class="nav-link"><i data-lucide="container"></i> <span>My Collection</span></a></li>
-                <li><a href="all-plants.html" class="nav-link"><i data-lucide="leaf"></i> <span>All Plants</span></a></li>
-                <li><a href="social-posts.html" class="nav-link"><i data-lucide="message-square"></i> <span>Social Feed</span></a></li>
+                <li><a href="all-plants.html" class="nav-link"><i data-lucide="flower"></i> <span>All Plants</span></a></li>
+                <li><a href="plantGrowth.html" class="nav-link"><i data-lucide="leaf"></i> <span>Plant Growth</span></a></li>
+                <li><a href="myCollection.html" class="nav-link"><i data-lucide="container"></i> <span>My Collection</span></a></li>
+                <li><a href="socialPosts.html" class="nav-link"><i data-lucide="message-square"></i> <span>Social Feed</span></a></li>
                 <li><a href="notifications.html" class="nav-link"><i data-lucide="bell"></i> <span>Notifications</span></a></li>
                 <li><a href="weather.html" class="nav-link"><i data-lucide="cloud-sun"></i> <span>Weather</span></a></li>
                 <li><a href="settings.html" class="nav-link active"><i data-lucide="settings"></i> <span>Settings</span></a></li>
-                <li><a href="expert-corner.html" class="nav-link"><i data-lucide="bot"></i> <span>Expert Corner</span></a></li>
+                <li><a href="expertAI.html" class="nav-link"><i data-lucide="bot"></i> <span>Expert Corner</span></a></li>
             </ul>
         </nav>
         <a href="javascript:void(0)" onclick="auth.logout()" style="color: var(--text-dim); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; margin-top: auto; padding: 1rem;"><i data-lucide="log-out"></i> <span>Logout</span></a>
@@ -143,58 +52,8 @@
     <div class="msg" id="msg"></div>
 </div>
 <script src="API/auth.js"></script>
-<script>
-    if (!auth.isLoggedIn()) {
-        window.location.href = 'sing-in/pages/sign-in.html';
-    }
-    const displayName = document.getElementById('displayName');
-    const tz = document.getElementById('timezone');
-    const loc = document.getElementById('locale');
-    const unitsEl = document.getElementById('units');
-    const darkMode = document.getElementById('darkMode');
-    const notify = document.getElementById('notifyByEmail');
-    const pushNotifications = document.getElementById('pushNotifications');
-    const msg = document.getElementById('msg');
-    const saveBtn = document.getElementById('saveBtn');
-
-    function loadSettings(){
-        fetch('http://localhost:8080/api/v1/user/settings', { headers: auth.authHeaders() })
-            .then(r=>{ if(r.status===401||r.status===403){ window.location.href='sing-in/pages/sign-in.html'; throw new Error('unauth'); } return r.json() })
-            .then(json=>{
-                const data = json.data || {};
-                displayName.value = data.displayName || '';
-                tz.value = data.timezone || '';
-                loc.value = data.locale || '';
-                unitsEl.value = data.units || 'metric';
-                darkMode.checked = !!data.darkMode;
-                notify.checked = !!data.notifyByEmail;
-                pushNotifications.checked = !!data.pushNotifications;
-            })
-            .catch(e=>{ if(e.message==='unauth') return; msg.innerText='Failed to load settings'; });
-    }
-
-    saveBtn.onclick = function(){
-        const payload = {
-            displayName: displayName.value || null,
-            timezone: tz.value || null,
-            locale: loc.value || null,
-            units: unitsEl.value || null,
-            darkMode: darkMode.checked,
-            notifyByEmail: notify.checked,
-            pushNotifications: pushNotifications.checked
-        };
-        fetch('http://localhost:8080/api/v1/user/settings', { method: 'PUT', headers: auth.authHeaders(), body: JSON.stringify(payload) })
-            .then(r=>{ if(r.status===401||r.status===403){ window.location.href='sing-in/pages/sign-in.html'; throw new Error('unauth'); } return r.json() })
-            .then(json=>{ msg.innerText='Settings saved'; setTimeout(()=>msg.innerText='',2000) })
-            .catch(e=>{ if(e.message==='unauth') return; msg.innerText='Failed to save settings'; });
-    }
-
-    loadSettings();
-</script>
+        <script src="sidebar/js/settings.js"></script>
+    </main>
 </body>
 </html>
-<script>
-    if (window.lucide) lucide.createIcons();
-    // Ensure sidebar icons render
-    try { if (auth && auth.isLoggedIn && !auth.isLoggedIn()) { window.location.href = 'sing-in/pages/sign-in.html'; } } catch(e) {}
-</script>
+

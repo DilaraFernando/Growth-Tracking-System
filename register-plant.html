@@ -4,158 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Plant | PlantPulse</title>
-    <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --bg-color: #f8fafc;
-            --sidebar-bg: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.8);
-            --primary: #059669;
-            --primary-light: #ecfdf5;
-            --primary-glow: rgba(5, 150, 105, 0.15);
-            --text-main: #1e293b;
-            --text-dim: #64748b;
-            --glass-border: rgba(226, 232, 240, 0.8);
-            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-        }
+    <link rel="stylesheet" href="sidebar/style/registerPlant.css">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-
-        body {
-            background-color: var(--bg-color);
-            background-image: radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 25%);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-        }
-
-        /* --- Sidebar --- */
-        aside {
-            width: 260px;
-            background: var(--sidebar-bg);
-            border-right: 1.5px solid var(--glass-border);
-            padding: 2.5rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            z-index: 100;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 3rem;
-            text-decoration: none;
-        }
-
-        nav { flex: 1; }
-        nav ul { list-style: none; }
-        nav li { margin-bottom: 0.5rem; }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.75rem 1rem;
-            color: var(--text-dim);
-            text-decoration: none;
-            border-radius: 12px;
-            transition: all 0.2s ease;
-            font-weight: 600;
-        }
-
-        .nav-link:hover { background: #f1f5f9; color: var(--primary); }
-        .nav-link.active { background: var(--primary-light); color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary-glow); }
-
-        /* --- Main Content --- */
-        main { flex: 1; padding: 40px; max-width: 1000px; margin: 0 auto; width: 100%; }
-
-        .header-title h1 { font-size: 2rem; font-weight: 800; color: var(--text-main); letter-spacing: -1px; margin-bottom: 8px; }
-        .header-title p { color: var(--text-dim); font-size: 1rem; margin-bottom: 40px; }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 32px;
-            padding: 40px;
-            border: 1.5px solid var(--glass-border);
-            backdrop-filter: blur(12px);
-            box-shadow: var(--card-shadow);
-        }
-
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        .form-group { margin-bottom: 24px; }
-        .form-group.full-width { grid-column: span 2; }
-        
-        label { display: block; font-weight: 700; font-size: 0.9rem; color: var(--text-main); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 16px;
-            border-radius: 16px;
-            border: 1.5px solid var(--glass-border);
-            background: #f8fafc;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            outline: none;
-        }
-
-        input:focus, select:focus, textarea:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px var(--primary-light); }
-
-        .btn-submit {
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            padding: 18px;
-            border-radius: 18px;
-            font-size: 1.1rem;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            margin-top: 20px;
-            box-shadow: 0 10px 20px -5px rgba(5, 150, 105, 0.3);
-        }
-
-        .btn-submit:hover { transform: translateY(-2px); background: #047857; box-shadow: 0 15px 25px -5px rgba(5, 150, 105, 0.4); }
-
-        .success-msg { color: var(--primary); font-weight: 700; text-align: center; margin-top: 20px; display: none; padding: 16px; background: var(--primary-light); border-radius: 12px; }
-
-        @media (max-width: 768px) {
-            aside { width: 80px; padding: 2rem 1rem; }
-            .nav-link span, .logo span { display: none; }
-            .form-grid { grid-template-columns: 1fr; }
-            .form-group.full-width { grid-column: span 1; }
-        }
-    </style>
 </head>
 <body>
 
     <aside>
-        <a href="index.html" class="logo">
+        <a href="homePage.html" class="logo">
             <i data-lucide="sprout"></i>
-            <span>PlantPulse</span>
+            <span>Growth-Agri</span>
         </a>
         <nav>
             <ul>
                 <li><a href="dashboard.html" class="nav-link"><i data-lucide="layout-dashboard"></i> <span>Dashboard</span></a></li>
                 <li><a href="register-plant.html" class="nav-link active"><i data-lucide="plus-square"></i> <span>Register Plant</span></a></li>
-                <li><a href="greenhouse.html" class="nav-link"><i data-lucide="container"></i> <span>My Collection</span></a></li>
-                <li><a href="all-plants.html" class="nav-link"><i data-lucide="leaf"></i> <span>All Plants</span></a></li>
-                <li><a href="social-posts.html" class="nav-link"><i data-lucide="message-square"></i> <span>Social Feed</span></a></li>
+                <li><a href="all-plants.html" class="nav-link"><i data-lucide="flower"></i> <span>All Plants</span></a></li>
+                <li><a href="plantGrowth.html" class="nav-link"><i data-lucide="leaf"></i> <span>Plant Growth</span></a></li>
+                <li><a href="myCollection.html" class="nav-link"><i data-lucide="container"></i> <span>My Collection</span></a></li>
+                <li><a href="socialPosts.html" class="nav-link"><i data-lucide="message-square"></i> <span>Social Feed</span></a></li>
                 <li><a href="notifications.html" class="nav-link"><i data-lucide="bell"></i> <span>Notifications</span></a></li>
                 <li><a href="weather.html" class="nav-link"><i data-lucide="cloud-sun"></i> <span>Weather</span></a></li>
                 <li><a href="settings.html" class="nav-link"><i data-lucide="settings"></i> <span>Settings</span></a></li>
-                <li><a href="expert-corner.html" class="nav-link"><i data-lucide="bot"></i> <span>Expert Corner</span></a></li>
+                <li><a href="expertAI.html" class="nav-link"><i data-lucide="bot"></i> <span>Expert Corner</span></a></li>
             </ul>
         </nav>
         <a href="javascript:void(0)" onclick="auth.logout()" style="color: var(--text-dim); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; margin-top: auto; padding: 1rem;"><i data-lucide="log-out"></i> <span>Logout</span></a>
@@ -166,7 +38,6 @@
             <h1>Register New Plant</h1>
             <p>Add a new life to your digital Pulse garden.</p>
         </div>
-
         <div class="card">
             <form id="plantForm">
                 <div class="form-grid">
@@ -179,12 +50,10 @@
                         <input type="text" id="plantType" placeholder="e.g. Deliciosa" required>
                     </div>
                 </div>
-                
                 <div class="form-group">
                     <label for="plantedDate">Planted Date</label>
                     <input type="date" id="plantedDate" required>
                 </div>
-
                 <div class="form-group">
                     <label for="status">Current Status</label>
                     <select id="status">
@@ -193,55 +62,16 @@
                         <option value="ATTENTION">Needs Attention</option>
                     </select>
                 </div>
-
                 <div class="form-group full-width">
                     <label for="notes">Growth Notes (Optional)</label>
                     <textarea id="notes" rows="4" placeholder="Mention any specific care instructions..."></textarea>
                 </div>
-
                 <button type="submit" class="btn-submit">Initialize Growth Journey</button>
             </form>
             <div id="successMsg" class="success-msg">Successfully registered your plant! Starting journey...</div>
         </div>
     </main>
-
     <script src="API/auth.js"></script>
-    <script>
-        lucide.createIcons();
-
-        if (!auth.isLoggedIn()) {
-            window.location.href = "sing-in/pages/sign-in.html";
-        }
-
-        document.getElementById('plantForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const data = {
-                plantName: document.getElementById('plantName').value,
-                plantType: document.getElementById('plantType').value,
-                plantedDate: document.getElementById('plantedDate').value,
-                status: document.getElementById('status').value
-            };
-
-            try {
-                const response = await fetch('http://localhost:8080/api/v1/plants/register', {
-                    method: 'POST',
-                    headers: auth.authHeaders(),
-                    body: JSON.stringify(data)
-                });
-                
-                if (response.ok) {
-                    document.getElementById('successMsg').style.display = 'block';
-                    setTimeout(() => window.location.href = 'dashboard.html', 1500);
-                } else {
-                    alert('Registration failed. Please check your data.');
-                }
-            } catch (err) {
-                console.error(err);
-            }
-        });
-
-        // Set default date to today
-        document.getElementById('plantedDate').valueAsDate = new Date();
-    </script>
+<script src="sidebar/js/registerPlant.js"></script>
 </body>
 </html>
